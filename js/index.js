@@ -5,8 +5,8 @@ const resetBtn = document.getElementById('reset-btn');
 let draggedItem = null;
 
 // Add event listeners to the items in the source container
-const items = document.getElementsByClassName('item');
-for (const item of items) {
+const fruitsItems = document.getElementsByClassName('fruits-item');
+for (const item of fruitsItems) {
   item.addEventListener('dragstart', dragStart);
   item.addEventListener('dragend', dragEnd);
 }
@@ -17,7 +17,7 @@ secondContainer.addEventListener('dragenter', dragEnter);
 secondContainer.addEventListener('dragleave', dragLeave);
 secondContainer.addEventListener('drop', dragDrop);
 
-// Event listeners for the dragged item
+// Event listeners for the dragged fruits-item
 function dragStart() {
   draggedItem = this;
   setTimeout(() => this.style.display = 'none', 0);
@@ -55,9 +55,9 @@ resetBtn.addEventListener('click', reset);
 // Reset the containers and show a reset message
 function reset() {
   firstContainer.innerHTML = `
-    <div class="item" draggable="true">Apple</div>
-    <div class="item" draggable="true">Mango</div>
-    <div class="item" draggable="true">Jackfruit</div>
+    <div class="fruits-item" draggable="true">Apple</div>
+    <div class="fruits-item" draggable="true">Mango</div>
+    <div class="fruits-item" draggable="true">Jackfruit</div>
   `;
   secondContainer.innerHTML = '';
   showMessage('Containers reset!');
